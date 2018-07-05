@@ -1,6 +1,6 @@
-package com.canno.blog.controller;
+package com.canno.blog.mvc.controller;
 
-import com.canno.blog.service.UserService;
+import com.canno.blog.mvc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,6 +1,6 @@
-package com.canno.blog.service;
+package com.canno.blog.mvc.service;
 
-import com.canno.blog.dao.OrderDao;
+import com.canno.blog.mvc.dao.OrderDao;
 import com.canno.blog.entity.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,6 @@
-package com.canno.blog.service;
+package com.canno.blog.mvc.service;
 
-import com.canno.blog.dao.UserDao;
+import com.canno.blog.mvc.dao.UserDao;
 import com.canno.blog.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

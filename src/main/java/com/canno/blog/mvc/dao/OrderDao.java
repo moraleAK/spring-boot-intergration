@@ -1,4 +1,4 @@
-package com.canno.blog.dao;
+package com.canno.blog.mvc.dao;
 
 import com.canno.blog.database.dao.GenericDaoImpl;
 import com.canno.blog.entity.Order;

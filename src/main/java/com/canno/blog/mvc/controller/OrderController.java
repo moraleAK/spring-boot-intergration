@@ -1,6 +1,6 @@
-package com.canno.blog.controller;
+package com.canno.blog.mvc.controller;
 
-import com.canno.blog.service.OrderService;
+import com.canno.blog.mvc.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,8 +13,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 public class OrderController {
+    private final OrderService orderService;
+
     @Autowired
-    OrderService orderService;
+    public OrderController(OrderService orderService) {
+        this.orderService = orderService;
+    }
 
     @ResponseBody
     @RequestMapping(value = "/order/init")

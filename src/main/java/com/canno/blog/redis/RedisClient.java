@@ -13,8 +13,12 @@ import java.util.concurrent.TimeUnit;
  */
 @Service
 public class RedisClient {
+    private final RedisTemplate<String,Object> redisTemplate;
+
     @Autowired
-    private RedisTemplate<String,Object> redisTemplate;
+    public RedisClient(RedisTemplate<String, Object> redisTemplate) {
+        this.redisTemplate = redisTemplate;
+    }
 
     /**
      *
@@ -30,12 +34,12 @@ public class RedisClient {
 
     /**
      * 过期时间从调用该 api 起，顺延
-     * @param key
-     * @param value
+     * @param key key
+     * @param value value
      */
     public void addOrUpdate(String key, Object value) {
         Long expire = redisTemplate.getExpire(key, TimeUnit.SECONDS);
-        if (expire.longValue() > 0) {
+        if (expire > 0) {
             redisTemplate.opsForValue().set(key, value, expire, TimeUnit.SECONDS);
         }
         else {
@@ -48,7 +52,7 @@ public class RedisClient {
      * 查询用户cache
      *
      * @param key 键
-     * @return
+     * @return 值
      */
     public Object load(String key) {
         return redisTemplate.boundValueOps(key).get();
@@ -58,11 +62,4 @@ public class RedisClient {
         redisTemplate.delete(key);
     }
 
-    public RedisTemplate<String, Object> getRedisTemplate() {
-        return redisTemplate;
-    }
-
-    public void setRedisTemplate(RedisTemplate<String, Object> redisTemplate) {
-        this.redisTemplate = redisTemplate;
-    }
 }
