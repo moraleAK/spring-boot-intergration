@@ -1,5 +1,7 @@
 package com.canno.blog.database.dao;
 
+import org.springframework.boot.autoconfigure.quartz.QuartzDataSource;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;

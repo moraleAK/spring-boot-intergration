@@ -19,7 +19,6 @@ public class OrderController {
     @ResponseBody
     @RequestMapping(value = "/order/init")
     public String orderInit(@RequestParam long amount) throws InterruptedException {
-        Thread.sleep(10000L);
         System.out.println();
         return String.valueOf(orderService.orderInit(amount));
     }
