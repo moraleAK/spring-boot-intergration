@@ -10,9 +10,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class Consumer {
     /**
-     * producer/consumer schame
+     * producer/consumer model
      *
-     * @param text
+     * @param text the message of listener
      */
     @JmsListener(destination = "canno.test")
     public void receiveMessage(String text){

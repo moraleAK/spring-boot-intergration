@@ -1,0 +1,1 @@
+git tag -a v1.0 -m"spring boot, spring-batch, jetty, redis ,hibernate, jdbc, activeMQ"

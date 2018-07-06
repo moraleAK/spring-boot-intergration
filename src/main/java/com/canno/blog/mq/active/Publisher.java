@@ -14,10 +14,9 @@ import javax.jms.Destination;
 @Service
 public class Publisher {
     @Resource
-    JmsMessagingTemplate messagingTemplate;
+    private JmsMessagingTemplate messagingTemplate;
 
     public void publish(String destinationName, String message){
-        Destination destination = new ActiveMQTopic(destinationName);
         System.out.println("send topic message :" + message);
         messagingTemplate.convertAndSend(destinationName, message);
     }

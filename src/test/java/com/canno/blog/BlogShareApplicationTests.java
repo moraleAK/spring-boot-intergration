@@ -1,5 +1,6 @@
 package com.canno.blog;
 
+import com.canno.blog.mq.active.DestinationName;
 import com.canno.blog.mq.active.Producer;
 import com.canno.blog.mq.active.Publisher;
 import com.canno.blog.redis.RedisClient;
@@ -22,11 +23,13 @@ public class BlogShareApplicationTests {
     RedisClient redisClient;
 
     @Test
-    public void contextLoads() {
+    public void contextLoads() throws InterruptedException {
         for(int i = 0; i < 10; i ++){
-//            producer.sendMessage("canno.test", "第" + i + "条消息！");
-            publisher.publish("canno.topic","第" + i + "条消息！");
+//            producer.sendMessage(DestinationName.PRODUCER_MODEL, "第" + i + "条消息！");
+            Thread.sleep(3000L);
+            publisher.publish(DestinationName.PUBLISHER_MODEL,"第" + i + "条消息！");
         }
+        Thread.sleep(200000L);
     }
 
     @Test

@@ -23,7 +23,6 @@ public class SocketServer {
             while ((count = in.read(bytes)) != -1) {
                 System.out.println(new String(bytes));
             }
-//            socket.getOutputStream().write("heiheihei".getBytes());
             socket.shutdownInput();
             OutputStream os = socket.getOutputStream();
             PrintWriter pw = new PrintWriter(os);
