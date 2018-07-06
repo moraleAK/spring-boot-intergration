@@ -6,6 +6,8 @@ import com.canno.spring.boot.integration.mq.active.Publisher;
 import com.canno.spring.boot.integration.redis.RedisClient;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -21,9 +23,11 @@ public class BlogShareApplicationTests {
     Publisher publisher;
     @Autowired
     RedisClient redisClient;
+    Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Test
     public void contextLoads() throws InterruptedException {
+
         for(int i = 0; i < 10; i ++){
             producer.sendMessage(DestinationName.PRODUCER_MODEL, "第" + i + "条消息！");
             Thread.sleep(3000L);
@@ -34,7 +38,9 @@ public class BlogShareApplicationTests {
 
     @Test
     public void redisTest(){
-        redisClient.addOrUpdate("test","666");
-        System.out.println(redisClient.load("test"));
+        System.out.println("___________________________________________________________________");
+        String key = "canno";
+        redisClient.addOrUpdate(key,"enjoy nice");
+        logger.info("redis -> {}: {}",key, redisClient.load("canno"));
     }
 }
