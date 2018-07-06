@@ -8,15 +8,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 
 @SpringBootApplication
 public class BlogShareApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(BlogShareApplication.class, args);
-    }
-
-    @Bean
-    RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory  factory) {
-        RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
-        redisTemplate.setConnectionFactory(factory);
-        return redisTemplate;
     }
 }

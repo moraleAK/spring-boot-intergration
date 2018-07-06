@@ -25,7 +25,7 @@ public class BlogShareApplicationTests {
     @Test
     public void contextLoads() throws InterruptedException {
         for(int i = 0; i < 10; i ++){
-//            producer.sendMessage(DestinationName.PRODUCER_MODEL, "第" + i + "条消息！");
+            producer.sendMessage(DestinationName.PRODUCER_MODEL, "第" + i + "条消息！");
             Thread.sleep(3000L);
             publisher.publish(DestinationName.PUBLISHER_MODEL,"第" + i + "条消息！");
         }

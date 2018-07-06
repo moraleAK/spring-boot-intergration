@@ -19,7 +19,7 @@ import javax.jms.Destination;
  */
 @Configuration
 @EnableJms
-public class ActiveMQBean {
+public class AmqConfig {
 
     @Bean(name = DestinationName.PRODUCER_MODEL)
     public Destination producerDes(){
