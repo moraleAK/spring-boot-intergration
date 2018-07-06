@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.canno.blog</groupId>
-    <artifactId>blog-share</artifactId>
+    <artifactId>spring-boot-integration</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
