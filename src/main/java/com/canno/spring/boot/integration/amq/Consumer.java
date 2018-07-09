@@ -12,9 +12,9 @@ public class Consumer {
     /**
      * producer/consumer model
      *
-     * @param text the message of listener
+     * @param text the message from listener
      */
-    @JmsListener(destination = "canno.test")
+    @JmsListener(destination = DestinationName.PRODUCER_MODEL)
     public void receiveMessage(String text){
         System.out.println("receive message : " + text);
     }

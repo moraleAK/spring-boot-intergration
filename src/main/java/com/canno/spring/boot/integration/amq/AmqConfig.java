@@ -38,6 +38,13 @@ public class AmqConfig {
         return factory;
     }
 
+//    @Bean(name = "jmsTemplate")
+//    public JmsTemplate jmsTemplate(ConnectionFactory connectionFactory){
+//        JmsTemplate jmsTemplate = new JmsTemplate();
+//        jmsTemplate.setConnectionFactory(connectionFactory);
+//        return new JmsTemplate();
+//    }
+
     @Bean(name = "topicContainerFactory2")
     public DefaultJmsListenerContainerFactory topicClient2(ConnectionFactory connectionFactory, DefaultJmsListenerContainerFactoryConfigurer configurer){
         DefaultJmsListenerContainerFactory factory = defaultJmsListenerContainerFactoryTopic(connectionFactory,configurer);

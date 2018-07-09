@@ -18,18 +18,19 @@ import javax.annotation.Resource;
 @SpringBootTest
 public class SpringBootIntegrationApplicationTests {
     @Resource
-    Producer producer;
+    private Producer producer;
     @Resource
-    Publisher publisher;
+    private Publisher publisher;
     @Autowired
-    RedisClient redisClient;
-    Logger logger = LoggerFactory.getLogger(this.getClass());
+    private RedisClient redisClient;
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Test
     public void contextLoads() throws InterruptedException {
 
         for(int i = 0; i < 10; i ++){
-            producer.sendMessage(DestinationName.PRODUCER_MODEL, "第" + i + "条消息！");
+//            producer.sendMessage(DestinationName.PRODUCER_MODEL, "第" + i + "条消息！");
+            producer.sendMessage("第" + i + "条消息！");
             Thread.sleep(3000L);
             publisher.publish(DestinationName.PUBLISHER_MODEL,"第" + i + "条消息！");
         }
@@ -38,7 +39,7 @@ public class SpringBootIntegrationApplicationTests {
 
     @Test
     public void redisTest(){
-        System.out.println("___________________________________________________________________");
+        logger.info("___________________________________________________________________");
         String key = "canno";
         redisClient.addOrUpdate(key,"enjoy nice");
         logger.info("redis -> {}: {}",key, redisClient.load("canno"));

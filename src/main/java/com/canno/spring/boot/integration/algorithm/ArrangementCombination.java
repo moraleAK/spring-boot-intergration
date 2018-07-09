@@ -15,7 +15,7 @@ public class ArrangementCombination {
      * @return arrangement result
      */
     public static int arrangement(int n, int m) {
-//        return factorial(n) / factorial(n - m);
+///        return factorial(n) / factorial(n - m);
         if (n == m || m == 0) {
             return 1;
         }

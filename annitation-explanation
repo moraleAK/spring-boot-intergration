@@ -1,0 +1,12 @@
+@ConditionalOnXXX : 在XXX条件下触发对应注解方法
+eg：
+@ConditionalOnMissingBean 缺少某bean时执行
+当未配置 name = "redisTemplate" 的bean时，spring-boot 装配一个默认的 redisTemplate
+	@Bean
+	@ConditionalOnMissingBean(name = "redisTemplate")
+	public RedisTemplate<Object, Object> redisTemplate(
+			RedisConnectionFactory redisConnectionFactory) throws UnknownHostException {
+		RedisTemplate<Object, Object> template = new RedisTemplate<>();
+		template.setConnectionFactory(redisConnectionFactory);
+		return template;
+	}

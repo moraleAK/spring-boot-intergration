@@ -13,10 +13,10 @@ import java.util.concurrent.TimeUnit;
  */
 @Service
 public class RedisClient {
-    private final RedisTemplate<String,Object> redisTemplate;
+    private final RedisTemplate<Object,Object> redisTemplate;
 
     @Autowired
-    public RedisClient(RedisTemplate<String, Object> redisTemplate) {
+    public RedisClient(RedisTemplate<Object, Object> redisTemplate) {
         this.redisTemplate = redisTemplate;
     }
 
