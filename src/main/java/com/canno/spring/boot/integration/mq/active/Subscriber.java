@@ -31,12 +31,17 @@ public class Subscriber implements MessageListener {
         this.connectionFactory = connectionFactory;
     }
 
+    /**
+     * config #containerFactory unknown cause cannot receive message
+     *
+     * @param message
+     */
     @JmsListener(destination = DestinationName.PUBLISHER_MODEL, containerFactory = "topicContainerFactory1")
     public void subscribe(Message message){
         System.out.println("receive topic message :" + message);
     }
 
-//    @JmsListener(destination = DestinationName.PUBLISHER_MODEL, containerFactory = "topicContainerFactory2")
+    @JmsListener(destination = DestinationName.PUBLISHER_MODEL, containerFactory = "topicContainerFactory2")
     public void subscribe2(String message){
         System.out.println("The enemy also has " + message + "seconds to reach the battlefield. :" );
     }
