@@ -1,8 +1,8 @@
 package com.canno.spring.boot.integration;
 
-import com.canno.spring.boot.integration.mq.active.DestinationName;
-import com.canno.spring.boot.integration.mq.active.Producer;
-import com.canno.spring.boot.integration.mq.active.Publisher;
+import com.canno.spring.boot.integration.amq.DestinationName;
+import com.canno.spring.boot.integration.amq.Producer;
+import com.canno.spring.boot.integration.amq.Publisher;
 import com.canno.spring.boot.integration.redis.RedisClient;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,7 +16,7 @@ import javax.annotation.Resource;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class BlogShareApplicationTests {
+public class SpringBootIntegrationApplicationTests {
     @Resource
     Producer producer;
     @Resource

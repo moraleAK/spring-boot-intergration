@@ -1,4 +1,4 @@
-package com.canno.spring.boot.integration.mq.active;
+package com.canno.spring.boot.integration.amq;
 
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Service;

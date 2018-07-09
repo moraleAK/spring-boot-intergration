@@ -1,4 +1,4 @@
-package com.canno.spring.boot.integration.mq.active;
+package com.canno.spring.boot.integration.amq;
 
 import org.springframework.jms.core.JmsMessagingTemplate;
 import org.springframework.stereotype.Service;

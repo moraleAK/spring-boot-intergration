@@ -1,4 +1,4 @@
-package com.canno.spring.boot.integration.mq.active;
+package com.canno.spring.boot.integration.amq;
 
 import org.apache.activemq.command.ActiveMQQueue;
 import org.apache.activemq.command.ActiveMQTopic;

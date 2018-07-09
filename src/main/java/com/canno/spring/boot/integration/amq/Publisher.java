@@ -1,4 +1,4 @@
-package com.canno.spring.boot.integration.mq.active;
+package com.canno.spring.boot.integration.amq;
 
 import org.apache.activemq.command.ActiveMQTopic;
 import org.springframework.jms.core.JmsMessagingTemplate;
@@ -19,5 +19,8 @@ public class Publisher {
     public void publish(String destinationName, String message){
         System.out.println("send topic message :" + message);
         messagingTemplate.convertAndSend(destinationName, message);
+
+
+
     }
 }

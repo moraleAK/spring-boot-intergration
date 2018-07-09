@@ -7,7 +7,7 @@ package com.canno.spring.boot.integration.zee;
 public class Dog implements AbstractZoo {
     @Override
     public void go() {
-        System.out.println("撒开大脚丫子 狂奔" );
+        System.out.println("撒开大脚丫子 狂奔  " );
     }
 
     @Override
