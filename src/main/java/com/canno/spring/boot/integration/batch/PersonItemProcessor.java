@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.batch.item.ItemProcessor;
 
 /**
- * @author Canno
+ * @author CannoGcc
  * @since 2018/6/29 15:12
  */
 public class PersonItemProcessor implements ItemProcessor<Person, Person> {

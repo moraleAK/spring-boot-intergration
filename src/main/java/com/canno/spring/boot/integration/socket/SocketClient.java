@@ -5,7 +5,7 @@ import java.io.InputStream;
 import java.net.Socket;
 
 /**
- * @author Canno
+ * @author CannoGcc
  * @since 2018/6/28 17:27
  */
 public class SocketClient {

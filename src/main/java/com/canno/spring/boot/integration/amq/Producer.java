@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 import javax.jms.Destination;
 
 /**
- * @author Canno
+ * @author CannoGcc
  * @since 2018/7/5 16:03
  */
 @Service

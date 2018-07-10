@@ -6,7 +6,7 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 
 /**
- * @author Canno
+ * @author CannoGcc
  * @since 2018/6/28 14:26
  */
 @Component

@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 /**
- * @author Canno
+ * @author CannoGcc
  * @since 2018/6/28 14:27
  */
 @Entity

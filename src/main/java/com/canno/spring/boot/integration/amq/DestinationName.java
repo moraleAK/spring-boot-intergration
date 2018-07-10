@@ -1,7 +1,7 @@
 package com.canno.spring.boot.integration.amq;
 
 /**
- * @author Canno
+ * @author CannoGcc
  * @since 2018/7/6 14:48
  */
 public interface DestinationName {

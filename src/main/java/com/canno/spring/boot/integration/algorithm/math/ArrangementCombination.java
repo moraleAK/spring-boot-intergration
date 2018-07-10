@@ -1,9 +1,9 @@
-package com.canno.spring.boot.integration.algorithm;
+package com.canno.spring.boot.integration.algorithm.math;
 
 /**
  * Arrangement and Combination algorithm
  *
- * @author Canno
+ * @author CannoGcc
  * @since 2018/7/9 11:34
  */
 public class ArrangementCombination {

@@ -4,7 +4,7 @@ import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
 
 /**
- * @author Canno
+ * @author CannoGcc
  * @since 2018/7/9 19:03
  */
 @ShellComponent

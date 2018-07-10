@@ -4,7 +4,7 @@ import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Service;
 
 /**
- * @author Canno
+ * @author CannoGcc
  * @since 2018/7/5 16:03
  */
 @Service

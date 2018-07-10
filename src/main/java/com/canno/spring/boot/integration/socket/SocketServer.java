@@ -8,7 +8,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
- * @author Canno
+ * @author CannoGcc
  * @since 2018/6/28 17:06
  */
 public class SocketServer {

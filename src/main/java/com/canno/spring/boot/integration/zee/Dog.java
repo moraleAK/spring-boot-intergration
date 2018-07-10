@@ -1,7 +1,7 @@
 package com.canno.spring.boot.integration.zee;
 
 /**
- * @author Canno
+ * @author CannoGcc
  * @since 2018/7/9 9:38
  */
 public class Dog implements AbstractZoo {
