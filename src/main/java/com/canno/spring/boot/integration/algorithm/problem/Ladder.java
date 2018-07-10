@@ -41,6 +41,9 @@ public class Ladder {
     }
 
     public static void main(String[] args) {
-        System.out.println(calculate(0));
+        for (int i = 0; i< 44; i ++){
+            System.out.println(calculate(i + 1));
+        }
+
     }
 }
