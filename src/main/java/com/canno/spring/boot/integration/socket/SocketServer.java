@@ -26,7 +26,7 @@ public class SocketServer {
             socket.shutdownInput();
             OutputStream os = socket.getOutputStream();
             PrintWriter pw = new PrintWriter(os);
-            pw.write("欢迎您！");
+            pw.write("Welcome to Fire Sky ！");
             pw.flush();
         }
     }

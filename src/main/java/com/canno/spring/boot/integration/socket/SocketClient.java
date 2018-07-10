@@ -12,7 +12,7 @@ public class SocketClient {
     public void send() throws IOException, InterruptedException {
         while (true) {
             Socket socket = new Socket("localhost", 9002);
-            socket.getOutputStream().write("zhanjinkai".getBytes());
+            socket.getOutputStream().write("Jame.Kin".getBytes());
             socket.shutdownOutput();
             InputStream inputStream = socket.getInputStream();
             byte[] bytes = new byte[1024];

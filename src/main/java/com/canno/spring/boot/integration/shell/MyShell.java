@@ -20,11 +20,11 @@ public class MyShell {
     public String zoo(String zooName) {
         switch (zooName) {
             case "cat":
-                return "喵喵喵";
+                return "miao~miao_miao~";
             case "dog":
-                return "汪汪汪";
+                return "wang~wang~wang~";
             default:
-                return "emmmmmmm";
+                return "ZZZZZZ~";
         }
     }
 

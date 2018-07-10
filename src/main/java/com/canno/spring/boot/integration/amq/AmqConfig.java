@@ -22,18 +22,19 @@ import javax.jms.Destination;
 public class AmqConfig {
 
     @Bean(name = DestinationName.PRODUCER_MODEL)
-    public Destination producerDes(){
+    public Destination producerDes() {
         return new ActiveMQQueue(DestinationName.PUBLISHER_MODEL);
     }
 
     @Bean(name = DestinationName.PUBLISHER_MODEL)
-    public Destination publisherDes(){
+    public Destination publisherDes() {
         return new ActiveMQTopic(DestinationName.PUBLISHER_MODEL);
     }
 
+    @Deprecated
     @Bean(name = "topicContainerFactory1")
-    public DefaultJmsListenerContainerFactory topicClient1(ConnectionFactory connectionFactory, DefaultJmsListenerContainerFactoryConfigurer configurer){
-        DefaultJmsListenerContainerFactory factory = defaultJmsListenerContainerFactoryTopic(connectionFactory,configurer);
+    public DefaultJmsListenerContainerFactory topicClient1(ConnectionFactory connectionFactory, DefaultJmsListenerContainerFactoryConfigurer configurer) {
+        DefaultJmsListenerContainerFactory factory = defaultJmsListenerContainerFactoryTopic(connectionFactory, configurer);
         factory.setClientId("10001");
         return factory;
     }
@@ -45,23 +46,24 @@ public class AmqConfig {
 //        return new JmsTemplate();
 //    }
 
+    @Deprecated
     @Bean(name = "topicContainerFactory2")
-    public DefaultJmsListenerContainerFactory topicClient2(ConnectionFactory connectionFactory, DefaultJmsListenerContainerFactoryConfigurer configurer){
-        DefaultJmsListenerContainerFactory factory = defaultJmsListenerContainerFactoryTopic(connectionFactory,configurer);
+    public DefaultJmsListenerContainerFactory topicClient2(ConnectionFactory connectionFactory, DefaultJmsListenerContainerFactoryConfigurer configurer) {
+        DefaultJmsListenerContainerFactory factory = defaultJmsListenerContainerFactoryTopic(connectionFactory, configurer);
         factory.setClientId("10002");
         return factory;
     }
 
     /**
-     *
      * @param connectionFactory
      * @param configurer
      * @return
      */
 
+    @Deprecated
     public DefaultJmsListenerContainerFactory defaultJmsListenerContainerFactoryTopic(ConnectionFactory connectionFactory, DefaultJmsListenerContainerFactoryConfigurer configurer) {
         DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
-        configurer.configure(factory,connectionFactory);
+        configurer.configure(factory, connectionFactory);
         factory.setPubSubDomain(true);
         factory.setSessionTransacted(true);
         factory.setAutoStartup(true);

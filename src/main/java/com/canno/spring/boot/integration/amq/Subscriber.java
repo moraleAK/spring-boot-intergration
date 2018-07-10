@@ -36,16 +36,19 @@ public class Subscriber implements MessageListener {
      *
      * @param message
      */
+    @Deprecated
     @JmsListener(destination = DestinationName.PUBLISHER_MODEL, containerFactory = "topicContainerFactory1")
     public void subscribe(Message message){
         System.out.println("receive topic message :" + message);
     }
 
+    @Deprecated
     @JmsListener(destination = DestinationName.PUBLISHER_MODEL, containerFactory = "topicContainerFactory2")
     public void subscribe2(String message){
         System.out.println("The enemy also has " + message + "seconds to reach the battlefield. :" );
     }
 
+    @Deprecated
     @Bean(name = "myJmsContainerFactory")
     JmsListenerContainerFactory<?> myJmsContainerFactory(){
         SimpleJmsListenerContainerFactory factory = new SimpleJmsListenerContainerFactory();
