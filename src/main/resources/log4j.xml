@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration PUBLIC "-//LOGGER"
+        "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
+<log4j:configuration>
+    <appender name="RCAppender" class="org.apache.log4j.rolling.RollingFileAppender">
+        <param name="append" value="true"/>
+        <rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+            <param name="FileNamePattern" value="logs/payment_message_service.%d.log.gz"/>
+            <param name="ActiveFileName" value="logs/payment_message_service.log"/>
+        </rollingPolicy>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} [%p] %c{1} - %m%n"/>
+        </layout>
+    </appender>
+    <appender name="ConsoleAppender" class="org.apache.log4j.ConsoleAppender">
+        <param name="target" value="System.out"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} [%p] %c{1} - %m%n"/>
+        </layout>
+    </appender>
+    <logger name="com.el">
+        <level value="info"/>
+        <appender-ref ref="RCAppender"/>
+    </logger>
+    <!--NOTE the root logger must be last or you will get parser errors -->
+    <root>
+        <level value="info"/>
+        <appender-ref ref="ConsoleAppender"/>
+    </root>
+</log4j:configuration>
