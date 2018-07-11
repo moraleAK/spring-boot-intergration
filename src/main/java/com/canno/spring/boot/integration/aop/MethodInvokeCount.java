@@ -5,9 +5,7 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.redis.core.RedisTemplate;
 
 /**
  * @author Canno
@@ -16,16 +14,8 @@ import org.springframework.data.redis.core.RedisTemplate;
 @Aspect
 @Configuration
 public class MethodInvokeCount {
-    private static int cannoCount = 0;
+    private static int invokeCount = 0;
     private Logger logger = LoggerFactory.getLogger(this.getClass());
-
-    private final
-    RedisTemplate redisTemplate;
-
-    @Autowired
-    public MethodInvokeCount(RedisTemplate redisTemplate) {
-        this.redisTemplate = redisTemplate;
-    }
 
     /**
      * Count visits that marked as {@link com.canno.spring.boot.integration.java18.animation.Canno}
@@ -38,8 +28,8 @@ public class MethodInvokeCount {
     public Object count(ProceedingJoinPoint joinPoint) throws Throwable {
         Object o = joinPoint.proceed();
         synchronized (this) {
-            cannoCount++;
-            System.out.println(cannoCount);
+            invokeCount++;
+            System.out.println(invokeCount);
         }
         logger.info("@#!@#$%$%^&&&*^&*(^&()_*)(+__");
         return o;
@@ -57,8 +47,8 @@ public class MethodInvokeCount {
         return point.proceed();
     }
 
-    public static int getCannoCount() {
-        return cannoCount;
+    public static int getInvokeCount() {
+        return invokeCount;
     }
 
     @Around("@annotation(org.springframework.web.bind.annotation.RequestMapping))")

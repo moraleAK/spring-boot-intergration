@@ -35,7 +35,7 @@ public class AmqConfig {
     @Bean(name = "topicContainerFactory1")
     public DefaultJmsListenerContainerFactory topicClient1(ConnectionFactory connectionFactory, DefaultJmsListenerContainerFactoryConfigurer configurer) {
         DefaultJmsListenerContainerFactory factory = defaultJmsListenerContainerFactoryTopic(connectionFactory, configurer);
-        factory.setClientId("10001");
+        factory.setClientId("10003");
         return factory;
     }
 
@@ -50,7 +50,7 @@ public class AmqConfig {
     @Bean(name = "topicContainerFactory2")
     public DefaultJmsListenerContainerFactory topicClient2(ConnectionFactory connectionFactory, DefaultJmsListenerContainerFactoryConfigurer configurer) {
         DefaultJmsListenerContainerFactory factory = defaultJmsListenerContainerFactoryTopic(connectionFactory, configurer);
-        factory.setClientId("10002");
+        factory.setClientId("10004");
         return factory;
     }
 
