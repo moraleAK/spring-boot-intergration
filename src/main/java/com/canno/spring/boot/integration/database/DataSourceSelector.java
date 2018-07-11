@@ -25,4 +25,37 @@ public class DataSourceSelector {
     public static String getDataSource() {
         return SELECTED_DATA_SOURCE.get();
     }
+
+    /**
+     * @author CannoGcc
+     * @since 2018/7/5 14:55
+     */
+    //@Configuration
+    public static class DataSourceConfiguration {
+    //    @Bean
+    //    @Primary
+    //    @ConfigurationProperties(prefix = "spring.datasource")
+    //    public DataSource primaryDataSource() {
+    //        return DataSourceBuilder.create().build();
+    //    }
+    //
+    //    @Bean(name = "secondDatasource")
+    //    @ConfigurationProperties(prefix = "spring.second-datasource")
+    //    public DataSource secondDataSource() {
+    //        return DataSourceBuilder.create().build();
+    //
+    //    }
+    //
+    //    @Bean
+    //    @Primary
+    //    public JdbcTemplate primaryJdbcTemplate(DataSource dataSource) {
+    //        return new JdbcTemplate(dataSource);
+    //    }
+    //
+    //    @Bean(name = "secondJdbcTemplate")
+    //    public JdbcTemplate secondJdbcTemplate(@Qualifier("secondDatasource") DataSource dataSource) {
+    //        return new JdbcTemplate(dataSource);
+    //    }
+
+    }
 }
