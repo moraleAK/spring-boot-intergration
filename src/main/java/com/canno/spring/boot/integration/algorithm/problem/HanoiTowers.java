@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * @author CannoGcc
+ * @author Canno
  * @since 2018/7/10 11:19
  */
 public class HanoiTowers {

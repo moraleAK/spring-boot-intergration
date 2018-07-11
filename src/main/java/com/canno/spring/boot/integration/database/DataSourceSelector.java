@@ -27,7 +27,7 @@ public class DataSourceSelector {
     }
 
     /**
-     * @author CannoGcc
+     * @author Canno
      * @since 2018/7/5 14:55
      */
     //@Configuration

@@ -3,7 +3,7 @@ package com.canno.spring.boot.integration.java18.animation;
 import java.lang.annotation.*;
 
 /**
- * @author CannoGcc
+ * @author Canno
  * @since 2018/7/10 14:11
  */
 @Retention(value = RetentionPolicy.RUNTIME)

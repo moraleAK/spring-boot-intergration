@@ -14,7 +14,7 @@ import javax.jms.Destination;
 /**
  * bean of activeMQ
  *
- * @author CannoGcc
+ * @author Canno
  * @since 2018/7/6 15:03
  */
 @Configuration

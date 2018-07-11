@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * @author CannoGcc
+ * @author Canno
  * @since 2018/6/28 14:42
  */
 @Service

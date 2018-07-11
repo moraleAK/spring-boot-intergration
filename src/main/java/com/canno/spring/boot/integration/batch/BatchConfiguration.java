@@ -20,7 +20,7 @@ import org.springframework.core.io.ClassPathResource;
 import javax.sql.DataSource;
 
 /**
- * @author CannoGcc
+ * @author Canno
  * @since 2018/6/29 15:16
  */
 @Configuration

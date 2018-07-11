@@ -8,7 +8,7 @@ import javax.annotation.Resource;
 import javax.jms.Destination;
 
 /**
- * @author CannoGcc
+ * @author Canno
  * @since 2018/7/5 16:21
  */
 @Service

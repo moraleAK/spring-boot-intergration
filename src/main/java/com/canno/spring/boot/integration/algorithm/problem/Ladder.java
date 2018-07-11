@@ -5,7 +5,7 @@ package com.canno.spring.boot.integration.algorithm.problem;
  * You can move one or two steps each time.
  * Then, how many ways when from one step to the end?
  *
- * @author CannoGcc
+ * @author Canno
  * @since 2018/7/10 10:13
  */
 public class Ladder {

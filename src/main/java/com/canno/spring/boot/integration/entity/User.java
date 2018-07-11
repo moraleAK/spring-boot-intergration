@@ -3,7 +3,7 @@ package com.canno.spring.boot.integration.entity;
 import javax.persistence.*;
 
 /**
- * @author CannoGcc
+ * @author Canno
  * @since 2018/6/28 11:17
  */
 @Entity

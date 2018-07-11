@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * @author CannoGcc
+ * @author Canno
  * @since 2018/6/28 14:52
  */
 @Controller

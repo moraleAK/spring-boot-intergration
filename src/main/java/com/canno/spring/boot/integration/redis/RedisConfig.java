@@ -6,7 +6,7 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 
 /**
- * @author CannoGcc
+ * @author Canno
  * @since 2018/7/6 17:36
  */
 @Configuration

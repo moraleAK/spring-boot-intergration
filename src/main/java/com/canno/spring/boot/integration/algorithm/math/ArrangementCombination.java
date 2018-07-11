@@ -3,7 +3,7 @@ package com.canno.spring.boot.integration.algorithm.math;
 /**
  * Arrangement and Combination algorithm
  *
- * @author CannoGcc
+ * @author Canno
  * @since 2018/7/9 11:34
  */
 public class ArrangementCombination {

@@ -3,7 +3,7 @@ package com.canno.spring.boot.integration.system.info;
 import java.net.InetAddress;
 
 /**
- * @author CannoGcc
+ * @author Canno
  * @since 2018/7/2 16:16
  */
 public class SystemInfo {

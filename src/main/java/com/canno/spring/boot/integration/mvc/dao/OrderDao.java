@@ -6,7 +6,7 @@ import com.canno.spring.boot.integration.entity.Order;
 import org.springframework.stereotype.Repository;
 
 /**
- * @author CannoGcc
+ * @author Canno
  * @since 2018/6/28 14:37
  */
 @Repository

@@ -5,7 +5,7 @@ import com.canno.spring.boot.integration.java18.animation.Canno;
 import java.lang.reflect.Field;
 
 /**
- * @author CannoGcc
+ * @author Canno
  * @since 2018/7/9 11:31
  */
 @Canno(count = 1)

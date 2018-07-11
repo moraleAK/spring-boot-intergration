@@ -13,7 +13,7 @@ import javax.jms.Message;
 import javax.jms.MessageListener;
 
 /**
- * @author CannoGcc
+ * @author Canno
  * @since 2018/7/5 16:24
  */
 @Service

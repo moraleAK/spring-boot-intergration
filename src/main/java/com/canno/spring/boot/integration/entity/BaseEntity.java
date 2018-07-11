@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 
 /**
- * @author CannoGcc
+ * @author Canno
  * @since 2018/6/28 14:13
  */
 @MappedSuperclass

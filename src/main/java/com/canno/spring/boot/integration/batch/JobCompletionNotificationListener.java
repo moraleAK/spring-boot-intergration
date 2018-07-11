@@ -10,7 +10,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 /**
- * @author CannoGcc
+ * @author Canno
  * @since 2018/6/29 15:20
  */
 @Component

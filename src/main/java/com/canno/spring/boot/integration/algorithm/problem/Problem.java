@@ -1,7 +1,7 @@
 package com.canno.spring.boot.integration.algorithm.problem;
 
 /**
- * @author CannoGcc
+ * @author Canno
  * @since 2018/7/10 12:21
  */
 public class Problem {

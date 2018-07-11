@@ -1,7 +1,7 @@
 package com.canno.spring.boot.integration.shell;
 
 /**
- * @author CannoGcc
+ * @author Canno
  * @since 2018/7/9 19:03
  */
 //@ShellComponent
