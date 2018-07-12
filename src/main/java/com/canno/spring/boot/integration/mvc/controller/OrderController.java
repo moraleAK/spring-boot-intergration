@@ -29,4 +29,9 @@ public class OrderController {
         System.out.println();
         return String.valueOf(orderService.orderInit(amount));
     }
+
+    @RequestMapping(value = "/login")
+    public String getIndex(){
+        return "index";
+    }
 }
