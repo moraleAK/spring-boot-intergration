@@ -21,12 +21,14 @@ public class AesUtils {
      * @param key 加/解密要用的长度为32的字节数组（256位）密钥
      * @return byte[]  加密后的字节数组
      */
-    public static byte[] Aes256Encode(String str, byte[] key) {
+    public static byte[] encode(String str, byte[] key) {
         //initialize();
         byte[] result = null;
         try {
             Cipher cipher = Cipher.getInstance(ALGORITHM);
-            SecretKeySpec keySpec = new SecretKeySpec(key, "AES"); //生成加密解密需要的Key
+
+            //生成加密解密需要的Key
+            SecretKeySpec keySpec = new SecretKeySpec(key, "AES");
             cipher.init(Cipher.ENCRYPT_MODE, keySpec);
             result = cipher.doFinal(str.getBytes("UTF-8"));
         } catch (Exception e) {
@@ -40,7 +42,7 @@ public class AesUtils {
      * @param key   加/解密要用的长度为32的字节数组（256位）密钥
      * @return String  解密后的字符串
      */
-    public static String Aes256Decode(byte[] bytes, byte[] key) {
+    public static String decode(byte[] bytes, byte[] key) {
         //initialize();
         String result = null;
         try {

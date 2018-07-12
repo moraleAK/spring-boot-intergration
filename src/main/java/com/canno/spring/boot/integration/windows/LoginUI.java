@@ -10,7 +10,7 @@ import java.awt.*;
 //1.创建名为Login的类，在该类中创建一个名为InitUI的方法，图形界面就在此方法中实现
 public class LoginUI {
 
-    public void InitUI()
+    public void init()
     {
 //1.1创建一个顶级容器，也就是空白窗口，并为此窗口设置属性（窗口名称，大小，显示位置，关闭设置）
 
@@ -99,6 +99,6 @@ public class LoginUI {
     }
 
     public static void main(String[] args) {
-       new LoginUI().InitUI();
+       new LoginUI().init();
     }
 }

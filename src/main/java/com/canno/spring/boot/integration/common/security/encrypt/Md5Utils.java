@@ -73,10 +73,11 @@ public class Md5Utils {
         String stmp = "";
         for (int n = 0; n < b.length; n++) {
             stmp = (Integer.toHexString(b[n] & 0XFF));
-            if (stmp.length() == 1)
+            if (stmp.length() == 1) {
                 hs.append("0").append(stmp);
-            else
+            } else {
                 hs.append(stmp);
+            }
         }
         return hs.toString().toLowerCase();
     }

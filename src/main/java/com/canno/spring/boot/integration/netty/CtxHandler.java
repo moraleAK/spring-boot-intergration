@@ -13,7 +13,7 @@ import java.io.UnsupportedEncodingException;
  * @since 2018/7/10 19:22
  */
 public class CtxHandler extends ChannelInboundHandlerAdapter {
-    private Logger LOG = LoggerFactory.getLogger(this.getClass());
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     public CtxHandler() {
         super();
@@ -31,22 +31,22 @@ public class CtxHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        LOG.info(" {}通道已激活！", ctx.channel().localAddress().toString());
+        logger.info(" {}通道已激活！", ctx.channel().localAddress().toString());
     }
 
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        LOG.info("客户端断开连接！");
+        logger.info("客户端断开连接！");
     }
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        LOG.info("receive message: {}", getMessage((ByteBuf) msg));
+        logger.info("receive message: {}", getMessage((ByteBuf) msg));
     }
 
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
-        LOG.info("data receive end !");
+        logger.info("data receive end !");
     }
 
     @Override
@@ -62,7 +62,7 @@ public class CtxHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         ctx.close();
-        LOG.error(cause.getMessage(), cause);
+        logger.error(cause.getMessage(), cause);
     }
 
     /**

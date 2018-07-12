@@ -7,7 +7,7 @@ package com.canno.spring.boot.integration.java18.proxy;
  */
 public class CgLibProxyTest {
 
-    public static void main(String str[]){
+    public static void main(String[] str){
         CgLibProxy proxy = new CgLibProxy();
         Dog dog = proxy.getProxy(new Dog());
         dog.go();
