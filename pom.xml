@@ -179,6 +179,8 @@
                 <configuration>
                     <wait>3000</wait>
                     <maxAttempts>180</maxAttempts>
+                    <fork>true</fork>
+                    <jvmArguments>-Dfile.encoding=UTF-8</jvmArguments>
                 </configuration>
             </plugin>
         </plugins>
