@@ -3,6 +3,7 @@ package com.canno.spring.boot.integration.mvc.controller;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -19,6 +20,14 @@ public class JspController {
     public ModelAndView jsp(){
         System.out.println(name);
         return new ModelAndView("index");
+    }
+
+    @RequestMapping(value = "/jsp")
+    public String jsp(@RequestParam String name){
+        if(name.contains(".jsp")){
+            name = name.split("\\.")[0];
+        }
+        return name;
     }
 
 }

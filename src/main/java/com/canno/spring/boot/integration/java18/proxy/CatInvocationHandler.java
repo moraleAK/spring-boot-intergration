@@ -9,7 +9,7 @@ import java.lang.reflect.Proxy;
  * Date 2017/11/30
  * Time 9:48
  */
-public class CatInvocationHandler implements InvocationHandler {
+public class  CatInvocationHandler implements InvocationHandler {
     private Object target;
 
     public CatInvocationHandler(Object target) {
