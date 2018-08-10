@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 public class CannoConfig {
 
 //    @Bean
-//    public CannoAccssor cannoAccssor(){
-//        return new CannoAccssor();
+//    public CannoAccessor cannoAccssor(){
+//        return new CannoAccessor();
 //    }
 }

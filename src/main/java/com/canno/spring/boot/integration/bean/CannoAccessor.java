@@ -7,9 +7,9 @@ import org.springframework.beans.factory.InitializingBean;
  * @author Canno
  * @since 2018/7/12 15:23
  */
-public class CannoAccssor implements InitializingBean , BeanClassLoaderAware {
+public class CannoAccessor implements InitializingBean , BeanClassLoaderAware {
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet() {
         throw new RuntimeException("a Hahahaha hahaha!");
     }
 

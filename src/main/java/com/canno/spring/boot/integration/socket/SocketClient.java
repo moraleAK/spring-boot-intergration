@@ -20,7 +20,7 @@ public class SocketClient {
                 System.out.println(new String(bytes));
             }
             socket.close();
-            Thread.sleep(3000L);
+            Thread.sleep(3L);
         }
     }
 
