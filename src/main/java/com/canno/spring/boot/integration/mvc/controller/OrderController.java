@@ -5,9 +5,9 @@ import com.canno.spring.boot.integration.java18.animation.Canno;
 import com.canno.spring.boot.integration.mvc.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 /**
  * @author Canno
@@ -28,6 +28,14 @@ public class OrderController {
     public String orderInit(@RequestParam long amount) throws InterruptedException {
         System.out.println();
         return String.valueOf(orderService.orderInit(amount));
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/order/add", method = RequestMethod.POST)
+    @Canno
+    public String orderInit(@RequestBody Map<String, String> map) throws InterruptedException {
+        System.out.println();
+        return String.valueOf(orderService.orderInit(Long.valueOf(map.get("amount"))));
     }
 
     @RequestMapping(value = "/login")
