@@ -12,7 +12,7 @@ public enum CompareType {
     /**
      * 大于等于
      */
-    GRATER_THAN_AND_EQUAL(" >= ", "大于等于"),
+    GRATER_THAN_OR_EQUAL(" >= ", "大于等于"),
 
     /**
      * 小于
@@ -22,7 +22,7 @@ public enum CompareType {
     /**
      * 小于等于
      */
-    LESS_THAN_AND_EQUAL(" <=", "小于等于"),
+    LESS_THAN_OR_EQUAL(" <=", "小于等于"),
 
     /**
      * 等于

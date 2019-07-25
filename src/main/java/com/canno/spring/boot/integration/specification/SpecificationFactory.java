@@ -139,7 +139,7 @@ public class SpecificationFactory {
         Predicate predicate;
         switch (condition.operatorType) {
             // 小于等于
-            case LESS_THAN_AND_EQUAL:
+            case LESS_THAN_OR_EQUAL:
                 predicate = criteriaBuilder.lessThanOrEqualTo(root.get(condition.columnName), (Comparable) condition.value);
                 break;
 
@@ -163,7 +163,7 @@ public class SpecificationFactory {
                 break;
 
             // 大于等于
-            case GRATER_THAN_AND_EQUAL:
+            case GRATER_THAN_OR_EQUAL:
                 predicate = criteriaBuilder.greaterThanOrEqualTo(root.get(condition.columnName), (Comparable) condition.value);
                 break;
 
