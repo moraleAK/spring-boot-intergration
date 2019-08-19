@@ -9,7 +9,7 @@ import java.util.Set;
  * @since 2019/6/10 17:23
  */
 public class CustomCondition {
-    public CustomCondition(String columnName, String name, Object value, CompareType operatorType) {
+    CustomCondition(String columnName, String name, Object value, CompareType operatorType) {
         this.columnName = columnName;
         this.name = name;
         this.value = value;
@@ -19,45 +19,51 @@ public class CustomCondition {
     /**
      * 实体对应的列名
      */
-    protected String columnName;
+    String columnName;
 
     /**
      * 查询条件的名称
      */
-    protected String name;
+    String name;
 
     /**
      * 内部查询条件
      */
-    protected Set<String> inNames = new HashSet<>();
+    Set<String> inNames = new HashSet<>();
 
     /**
      * 条件对应值，须和实体列类型一一对应
      */
-    protected Object value;
+    Object value;
 
     /**
      * 操作符，大于、小于 .et
      */
-    protected CompareType operatorType;
+    CompareType operatorType;
 
-    protected boolean ignoreCase;
+    boolean ignoreCase;
+
+    String joinName;
 
     /**
      * 外部查询关联
      */
-    protected QueryCustom.LinkedType linkedType = QueryCustom.LinkedType.AND;
+    SpecificationQuery.OperatorType linkedType = SpecificationQuery.OperatorType.AND;
 
     /**
      * 内部查询关联
      */
-    protected QueryCustom.LinkedType inLinkedType = QueryCustom.LinkedType.AND;
+    SpecificationQuery.OperatorType inLinkedType = SpecificationQuery.OperatorType.AND;
 
-    public void setLinkedType(QueryCustom.LinkedType linkedType) {
+    void setLinkedType(SpecificationQuery.OperatorType linkedType) {
         this.linkedType = linkedType;
     }
 
-    public void setIgnoreCase(boolean ignoreCase) {
+    void setIgnoreCase(boolean ignoreCase) {
         this.ignoreCase = ignoreCase;
+    }
+
+    void setJoinName(String joinName) {
+        this.joinName = joinName;
     }
 }

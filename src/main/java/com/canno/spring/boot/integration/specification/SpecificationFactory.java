@@ -1,48 +1,38 @@
 package com.canno.spring.boot.integration.specification;
 
 import com.canno.spring.boot.integration.entity.BaseEntity;
-import com.canno.spring.boot.integration.utils.TypeConversionUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.jpa.domain.Specification;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import javax.persistence.criteria.*;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.canno.spring.boot.integration.specification.SpecificationUtils.getCustomConditions;
-import static com.canno.spring.boot.integration.specification.SpecificationUtils.getFields;
+import static com.canno.spring.boot.integration.specification.SpecificationUtils.*;
 
 /**
  * @author Gin
  * @since 2019/4/2 19:06
  */
-@SuppressWarnings({"uncheck", "rawtypes", "cast", "all"})
+@SuppressWarnings({"uncheck", "rawtypes", "cast"})
 public class SpecificationFactory {
     private static Logger logger = LoggerFactory.getLogger(SpecificationFactory.class);
 
-    public static <T extends BaseEntity> Specification<T> getConditions(Object queryCondition, Class<T> entityClass) {
-        return getConditions(queryCondition, entityClass, null);
-    }
 
     /**
      * @param queryCondition
      *         查询条件TO
      * @param entityClass
      *         查询实体
-     * @param conditions
-     *         自定义查询条件
      * @param <T>
      *         对应查询实体
      *
      * @return
      */
-    public static <T extends BaseEntity> Specification<T> getConditions(Object queryCondition, Class<T> entityClass, List<CustomCondition> customConditions) {
+    public static <T extends BaseEntity> Specification<T> getConditions(Object queryCondition, Class<T> entityClass) {
         return new Specification<T>() {
             @Override
             public Predicate toPredicate(Root<T> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
@@ -50,26 +40,17 @@ public class SpecificationFactory {
                 Predicate predicate = criteriaBuilder.equal(root.get("deleted"), false);
 
                 // 查询TO属性
-                Map<String, Object> conditionMap = getFields(queryCondition);
+                Map<String, Object> conditionMap = getProperties(queryCondition);
                 // 对应实体属性
-                Map<String, Object> entityMap = new HashMap<>();
-                try {
-                    entityMap = TypeConversionUtil.json2Object(TypeConversionUtil.object2Json(entityClass.newInstance()), HashMap.class);
-                } catch (InstantiationException | IllegalAccessException e) {
-                    e.printStackTrace();
-                }
+                Map<String, Method> entityMap = getPropertiesAndGetter(entityClass);
 
                 // 内部类 此处customConditions 值被 static final 修饰，此处新建一个List 对其进行条件初始化
-                List<CustomCondition> conditions = customConditions;
-                if (conditions == null) {
-                    conditions = new ArrayList<>();
-                }
 
                 // 把有注解的字段转换为查询条件
-                conditions.addAll(getCustomConditions(queryCondition));
+                List<CustomCondition> conditions = new ArrayList<>(getCustomConditions(queryCondition));
 
                 // 自定义条件转换
-                if (conditions != null && conditions.size() > 0) {
+                if (conditions.size() > 0) {
                     for (CustomCondition condition : conditions) {
                         if (!entityMap.containsKey(condition.columnName)) {
                             throw new RuntimeException("未知字段:" + condition.columnName);
@@ -85,7 +66,6 @@ public class SpecificationFactory {
                                 break;
                             }
 
-                            // TODO: 2019/7/23 bug-fixed
                             case OR: {
                                 predicate = criteriaBuilder.or(predicate, tmp);
                                 break;
@@ -146,35 +126,41 @@ public class SpecificationFactory {
             // 包含
             case CONTAIN:
                 if (condition.ignoreCase) {
-                    predicate = (criteriaBuilder.like(criteriaBuilder.lower(root.get(condition.columnName)), "%" + ((String) condition.value).toLowerCase() + "%"));
+                    predicate = (criteriaBuilder.like(criteriaBuilder.lower(gtePath(condition, root)), "%" + ((String) condition.value).toLowerCase() + "%"));
                 } else {
-                    predicate = criteriaBuilder.like(root.get(condition.columnName), "%" + condition.value + "%");
+                    predicate = criteriaBuilder.like(gtePath(condition, root), "%" + condition.value + "%");
                 }
                 break;
 
             // 小于
             case LESS_THAN:
-                predicate = criteriaBuilder.lessThan(root.get(condition.columnName), (Comparable) condition.value);
+                predicate = criteriaBuilder.lessThan(gtePath(condition, root), (Comparable) condition.value);
                 break;
 
             // 大于
             case GRATER_THAN:
-                predicate = criteriaBuilder.greaterThan(root.get(condition.columnName), (Comparable) condition.value);
+                predicate = criteriaBuilder.greaterThan(gtePath(condition, root), (Comparable) condition.value);
                 break;
 
             // 大于等于
             case GRATER_THAN_OR_EQUAL:
-                predicate = criteriaBuilder.greaterThanOrEqualTo(root.get(condition.columnName), (Comparable) condition.value);
+                predicate = criteriaBuilder.greaterThanOrEqualTo(gtePath(condition, root), (Comparable) condition.value);
                 break;
 
             // 默认等于
             case EQUAL:
             default:
-                predicate = criteriaBuilder.equal(root.get(condition.columnName), condition.value);
+                predicate = criteriaBuilder.equal(gtePath(condition, root), condition.value);
                 break;
         }
 
         return predicate;
+    }
+
+    private static <Y, T> Path<Y> gtePath(CustomCondition condition, Root<T> root) {
+        return condition.joinName == null || "".equals(condition.joinName)
+                ? root.get(condition.columnName)
+                : root.get(condition.joinName).get(condition.columnName);
     }
 
     private static <T> Predicate getInPredicate(Predicate predicate, CustomCondition condition, CriteriaBuilder criteriaBuilder, Root<T> root) {
