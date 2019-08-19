@@ -1,6 +1,5 @@
 package com.canno.spring.boot.integration.specification;
 
-import com.canno.spring.boot.integration.entity.BaseEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.jpa.domain.Specification;
@@ -32,12 +31,14 @@ public class SpecificationFactory {
      *
      * @return
      */
-    public static <T extends BaseEntity> Specification<T> getConditions(Object queryCondition, Class<T> entityClass) {
+    public static <T> Specification<T> getConditions(Object queryCondition, Class<T> entityClass) {
         return new Specification<T>() {
             @Override
             public Predicate toPredicate(Root<T> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
                 // 仅加载所有未删除的记录
-                Predicate predicate = criteriaBuilder.equal(root.get("deleted"), false);
+//                Predicate predicate = criteriaBuilder.equal(root.get("deleted"), false);
+                Predicate predicate = criteriaBuilder.conjunction();
+//                Predicate predicate;
 
                 // 查询TO属性
                 Map<String, Object> conditionMap = getProperties(queryCondition);
