@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import java.util.List;
+import java.util.function.Function;
 
 /**
  * @author Gin
@@ -16,13 +17,8 @@ import java.util.List;
 @Transactional(readOnly = true)
 @SuppressWarnings("all")
 public class JpaRepositoryExtendedImpl<T,ID> extends SimpleJpaRepository implements JpaRepositoryExtend {
-    private final JpaEntityInformation<T, ?> entityInformation;
-
-
     public JpaRepositoryExtendedImpl(JpaEntityInformation<T, ?> entityInformation, EntityManager entityManager) {
         super(entityInformation, entityManager);
-
-        this.entityInformation = entityInformation;
     }
 
     @Override
@@ -33,5 +29,18 @@ public class JpaRepositoryExtendedImpl<T,ID> extends SimpleJpaRepository impleme
     @Override
     public Page findAllWith(Object o, Pageable pageable) {
         return findAll(SpecificationFactory.getConditions(o, getDomainClass()), pageable);
+    }
+
+    @Override
+    public Page findAllWith(PageRequest pageRequest) {
+        return findAll(SpecificationFactory.getConditions(pageRequest, getDomainClass()), pageRequest.toPageable());
+    }
+
+    @Override
+    public PaginationResult findAllWith(PageRequest query, Function transfer) {
+        return new PaginationResult().of(
+                findAll(SpecificationFactory.getConditions(query, getDomainClass()), query.toPageable())
+                , transfer
+        );
     }
 }
